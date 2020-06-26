@@ -651,7 +651,7 @@ function dlAsync(login = true) {
                 const onLoadComplete = () => {
                     toggleLaunchArea(false)
                     if (hasRPC) {
-                        DiscordWrapper.updateDetails('Loading game..')
+                        DiscordWrapper.updateDetails('Chargement du Jeu..')
                     }
                     proc.stdout.on('data', gameStateChange)
                     proc.stdout.removeListener('data', tempListener)
@@ -678,7 +678,7 @@ function dlAsync(login = true) {
                 const gameStateChange = function (data) {
                     data = data.trim()
                     if (SERVER_JOINED_REGEX.test(data)) {
-                        DiscordWrapper.updateDetails('Sur le Jeu')
+                        DiscordWrapper.updateDetails('Sur Minecraft')
                     } else if (GAME_JOINED_REGEX.test(data)) {
                         DiscordWrapper.updateDetails('Connecté sur NewdyCraft')
                     }
@@ -700,7 +700,7 @@ function dlAsync(login = true) {
                     proc.stdout.on('data', tempListener)
                     proc.stderr.on('data', gameErrorListener)
 
-                    setLaunchDetails('Done. Enjoy the server!')
+                    setLaunchDetails('Terminé, Bon jeu sur NewdyCraft !')
 
                     // Init Discord Hook
                     const distro = DistroManager.getDistribution()
